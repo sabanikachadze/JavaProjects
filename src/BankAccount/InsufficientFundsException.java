@@ -1,0 +1,4 @@
+package BankAccount;
+
+public class InsufficientFundsException extends Exception {
+}
