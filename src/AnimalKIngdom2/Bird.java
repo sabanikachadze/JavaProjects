@@ -16,15 +16,10 @@ public class Bird extends Animal implements Trainable{
     }
 
     @Override
-    public void shoTricks() {
+    public void showTricks() {
         for(String trick : tricks){
             System.out.println(trick);
         }
-    }
-
-    @Override
-    public boolean isTrained() {
-        return true;
     }
 
     @Override

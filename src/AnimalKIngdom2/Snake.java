@@ -8,7 +8,7 @@ public class Snake extends Animal implements Trainable {
     }
 
     @Override
-    public void shoTricks() {
+    public void showTricks() {
         System.out.println(getName() + " has no tricks.");
     }
 

@@ -6,10 +6,6 @@ public abstract class Animal {
     private int age;
     private boolean sleep = false;
 
-    // REMOVED: "trained" field — it was always false and never set to true
-    // Whether an animal is trainable is determined by instanceof Trainable (see Zoo)
-    // Keeping a dead field is misleading and causes bugs
-
     public Animal(String sound, String name, int age) {
         this.sound = sound;
         this.name = name;
@@ -25,7 +21,6 @@ public abstract class Animal {
     public boolean isSleep() { return sleep; }
     public String getSound() { return sound; }
 
-    // FIX: getName() was missing — subclasses like Dog/Snake couldn't access the name
     public String getName() { return name; }
 
     @Override

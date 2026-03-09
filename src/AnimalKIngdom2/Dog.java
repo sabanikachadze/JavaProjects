@@ -3,10 +3,15 @@ package AnimalKIngdom2;
 import java.util.ArrayList;
 
 public class Dog extends Animal implements Trainable {
-    private ArrayList<String> tricks = new ArrayList<>();
+    private final ArrayList<String> tricks = new ArrayList<>();
 
     public Dog(String sound, String name, int age) {
         super(sound, name, age);
+    }
+
+    @Override
+    public void makeSound() {
+        System.out.println(getSound());
     }
 
     @Override
@@ -17,7 +22,7 @@ public class Dog extends Animal implements Trainable {
     }
 
     @Override
-    public void showTricks() { // FIX: typo "shoTricks" → "showTricks"
+    public void showTricks() {
         System.out.println(getName() + "'s tricks: " + tricks);
     }
 }
