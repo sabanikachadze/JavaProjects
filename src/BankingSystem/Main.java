@@ -17,8 +17,8 @@ public class Main {
             fixedAcc.deposit(10);
             savingsAcc.deposit(50);
 
-            chAcc.withdraw(130);
-            savingsAcc.withdraw(240);
+            chAcc.withdraw(25);
+            savingsAcc.withdraw(20);
 
             bank.addAccount(chAcc);
             bank.addAccount(savingsAcc);

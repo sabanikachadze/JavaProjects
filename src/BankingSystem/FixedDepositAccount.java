@@ -12,7 +12,7 @@ public class FixedDepositAccount extends BankAccount {
     }
 
     @Override
-    public void withdraw(double amount) throws BankingExceptions{
+    public void withdraw(double amount) throws WithdrawalNotAllowedException{
 
         if (LocalDate.now().isBefore(maturityDate)) {
             throw new WithdrawalNotAllowedException(maturityDate);

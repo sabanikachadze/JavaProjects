@@ -11,7 +11,7 @@ public abstract class BankAccount {
     public BankAccount(String ownerName, double initialDeposit, String prefix) throws BankingExceptions {
         this.accountNumber = String.format(prefix + "-%04d", counter.incrementAndGet());
         this.ownerName = ownerName;
-        balanceCheck(initialDeposit);
+        initialDepositCheck(initialDeposit);
         this.balance = initialDeposit;
     }
 
@@ -26,8 +26,8 @@ public abstract class BankAccount {
 
     abstract public void withdraw(double amount) throws BankingExceptions;
 
-    private void balanceCheck(double amount) throws BankingExceptions {
-        if (amount < 0) throw new BankingExceptions(ownerName);
+    private void initialDepositCheck(double amount) throws InitialDepositCannotBeNegativeException {
+        if (amount < 0) throw new InitialDepositCannotBeNegativeException(ownerName);
     }
 
 
