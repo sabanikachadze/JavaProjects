@@ -1,6 +1,5 @@
 package GenericStack;
 
-import javax.lang.model.util.Elements;
 import java.util.ArrayList;
 
 public class Stack<T> {
@@ -18,6 +17,8 @@ public class Stack<T> {
     }
 
     public T peek() {
+        if (elements.isEmpty())
+            throw new RuntimeException("Stack is empty");
         return elements.getLast();
     }
 
