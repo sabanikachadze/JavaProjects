@@ -1,4 +1,4 @@
-package GenericStack;
+package Generics;
 
 import java.util.ArrayList;
 
