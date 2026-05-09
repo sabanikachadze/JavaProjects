@@ -1,0 +1,12 @@
+package TheLegacyWeatherBridge;
+
+public class WeatherUnavailableException extends Exception {
+
+    public WeatherUnavailableException(String message) {
+        super(message);
+    }
+
+    public WeatherUnavailableException(String message, Throwable cause) {
+        super(message, cause);
+    }
+}
