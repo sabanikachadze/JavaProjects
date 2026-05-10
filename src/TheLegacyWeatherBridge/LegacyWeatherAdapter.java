@@ -2,8 +2,10 @@ package TheLegacyWeatherBridge;
 
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class LegacyWeatherAdapter implements WeatherProvider {
 
@@ -46,11 +48,24 @@ public class LegacyWeatherAdapter implements WeatherProvider {
             return new WeatherReading(cityName, celsius, kph, condition);
 
         } catch (LegacyServiceException e) {
-            // Pass e as the cause so the original exception is preserved in the stack trace
             throw new WeatherUnavailableException(
                 "Legacy station has no data for city: " + city, e
             );
         }
+    }
+
+    @Override
+    public Map<String, WeatherReading> getAll(List<String> cities) {
+        return cities.parallelStream()
+            .flatMap(city -> {
+                try {
+                    return Stream.of(Map.entry(city, getCurrentWeather(city)));
+                } catch (WeatherUnavailableException e) {
+                    System.out.println("  [skip] " + city + ": " + e.getMessage());
+                    return Stream.empty();
+                }
+            })
+            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
     private static String toTitleCase(String input) {

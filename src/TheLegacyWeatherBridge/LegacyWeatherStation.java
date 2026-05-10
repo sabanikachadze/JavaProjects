@@ -12,11 +12,6 @@ public class LegacyWeatherStation {
         "berlin",    "Berlin,60.0,15.0,PC"
     );
 
-    /**
-     * Returns a CSV string: "CITY_RAW,TEMP_F,WIND_MPH,CONDITION_CODE"
-     * Example: "tbilisi,72.0,10.0,PC"
-     * Throws LegacyServiceException if the city is unknown.
-     */
     public String fetchWeatherCsv(String city) throws LegacyServiceException {
         if (city == null) {
             throw new LegacyServiceException("city must not be null");

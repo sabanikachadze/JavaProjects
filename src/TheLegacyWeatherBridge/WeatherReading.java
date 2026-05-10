@@ -4,7 +4,7 @@ public record WeatherReading(String city, double temperatureC, double windKph, S
 
     @Override
     public String toString() {
-        return String.format("%-15s | %5.1f °C | %5.1f km/h | %s",
+        return String.format("%-15s | %5.2f °C | %5.2f km/h | %s",
             city, temperatureC, windKph, condition);
     }
 }

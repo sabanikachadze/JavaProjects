@@ -1,6 +1,6 @@
 package TheLegacyWeatherBridge;
 
-public class WeatherUnavailableException extends Exception {
+public class WeatherUnavailableException extends RuntimeException {
 
     public WeatherUnavailableException(String message) {
         super(message);
